@@ -1,36 +1,89 @@
-# COS 101 ASSIGNMENT
-# Five Basic Physics Formulas
+# PHYSICS CALCULATOR
 
-# 1. Speed = Distance / Time
-def speed(distance, time):
-    return distance / time
-
-
-# 2. Force = Mass × Acceleration
-def force(mass, acceleration):
-    return mass * acceleration
-
-
-# 3. Weight = Mass × Gravity
-def weight(mass, gravity=9.8):
-    return mass * gravity
+# Function 1: Calculate Speed
+def calculate_speed():
+    distance = float(input("Enter distance (m): "))
+    time = float(input("Enter time (s): "))
+    
+    if time == 0:
+        print("Time cannot be zero.")
+    else:
+        speed = distance / time
+        print("Speed =", speed, "m/s")
 
 
-# 4. Kinetic Energy = 1/2 × Mass × Velocity²
-def kinetic_energy(mass, velocity):
-    return 0.5 * mass * velocity ** 2
+# Function 2: Calculate Force
+def calculate_force():
+    mass = float(input("Enter mass (kg): "))
+    acceleration = float(input("Enter acceleration (m/s²): "))
+    
+    force = mass * acceleration
+    print("Force =", force, "N")
 
 
-# 5. Potential Energy = Mass × Gravity × Height
-def potential_energy(mass, gravity, height):
-    return mass * gravity * height
+# Function 3: Calculate Work
+def calculate_work():
+    force = float(input("Enter force (N): "))
+    distance = float(input("Enter distance (m): "))
+    
+    work = force * distance
+    print("Work =", work, "J")
 
 
-# Display results
-print("PHYSICS FORMULAS")
+# Function 4: Calculate Power
+def calculate_power():
+    work = float(input("Enter work (J): "))
+    time = float(input("Enter time (s): "))
+    
+    if time == 0:
+        print("Time cannot be zero.")
+    else:
+        power = work / time
+        print("Power =", power, "W")
 
-print("Speed:", speed(100, 20), "m/s")
-print("Force:", force(10, 5), "N")
-print("Weight:", weight(20), "N")
-print("Kinetic Energy:", kinetic_energy(10, 5), "J")
-print("Potential Energy:", potential_energy(10, 9.8, 5), "J")
+
+# Function 5: Calculate Kinetic Energy
+def calculate_kinetic_energy():
+    mass = float(input("Enter mass (kg): "))
+    velocity = float(input("Enter velocity (m/s): "))
+    
+    kinetic_energy = 0.5 * mass * velocity ** 2
+    print("Kinetic Energy =", kinetic_energy, "J")
+
+
+# MAIN PROGRAM
+while True:
+
+    print("\n===== PHYSICS CALCULATOR =====")
+    print("1. Calculate Speed")
+    print("2. Calculate Force")
+    print("3. Calculate Work")
+    print("4. Calculate Power")
+    print("5. Calculate Kinetic Energy")
+
+    choice = input("Select an operation (1-5): ")
+
+    if choice == "1":
+        calculate_speed()
+
+    elif choice == "2":
+        calculate_force()
+
+    elif choice == "3":
+        calculate_work()
+
+    elif choice == "4":
+        calculate_power()
+
+    elif choice == "5":
+        calculate_kinetic_energy()
+
+    else:
+        print("Invalid selection!")
+
+    # Ask user whether to continue
+    again = input("\nDo you want to continue? (yes/no): ").lower()
+
+    if again != "yes":
+        print("Thank you for using the Physics Calculator!")
+        break
